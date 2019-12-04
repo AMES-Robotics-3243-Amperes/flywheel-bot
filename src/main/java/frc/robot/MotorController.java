@@ -7,8 +7,12 @@
 
 package frc.robot;
 
+/// BEGIN LIBRARIES ///
+import com.ctre.phoenix.motorcontrol.can.TalonSRX; 
 /**
  * Add your docs here.
  */
 public class MotorController {
+    TaloxSRX  
+
 }
