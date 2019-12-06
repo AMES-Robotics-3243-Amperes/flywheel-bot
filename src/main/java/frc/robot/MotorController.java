@@ -7,13 +7,22 @@
 
 package frc.robot;
 
+/// BEGIN LIBRARIES ///
+import com.ctre.phoenix.motorcontrol.can.TalonSRX; 
+
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.TimedRobot;
+
 /**
  * Add your docs here.
  */
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 public class MotorController {
-    TalonSRX motor1 = new TalonSRX(1);
-    TalonSRX motor2 = new TalonSRX(2);
-    
+    private static final int deviceOne = 0;
+    TalonSRX motor1 = new TaloxSRX(deviceOne);
+    TalonSRX motor2 = new TalonSRX(deviceNumber);
+    // EEEE
+
+
 
 }
