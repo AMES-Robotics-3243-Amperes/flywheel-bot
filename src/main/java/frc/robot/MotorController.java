@@ -18,11 +18,10 @@ import edu.wpi.first.wpilibj.TimedRobot;
  * Add your docs here.
  */
 public class MotorController {
-    private static final int deviceOne = 0;
-    TalonSRX motor1 = new TaloxSRX(deviceOne);
-    TalonSRX motor2 = new TalonSRX(deviceNumber);
-    // EEEE
+    TalonSRX motor1 = new TalonSRX(1);
+    TalonSRX motor2 = new TalonSRX(2);
+    TalonSRX motor3 = new TalonSRX(3);
 
-
+    
 
 }
