@@ -14,6 +14,8 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 public class MotorController {
     TalonSRX motor1 = new TalonSRX(1);
     TalonSRX motor2 = new TalonSRX(2);
+    TalonSRX motor3 = new TalonSRX(3);
+
     
 
 }
