@@ -18,9 +18,8 @@ import edu.wpi.first.wpilibj.Joystick;
 public class InputManager {
     
     Joystick inputOne = new Joystick(RobotMap.DRIVER_CONTROLLER);
-    private static final double JOY_CURVE_EXP = 5;    //Was 3 11/14/19
-    //private static final double kDrive = 1;
-    //private static final double JOY_DEAD_THRESHOLD = 0.1d;
+    private static final double JOY_CURVE_EXP = 3;
+    private static final double JOY_DEAD_THRESHOLD = 0.1d;
 
     /**
      * Curves and deadzones a joystick axis value
@@ -29,11 +28,10 @@ public class InputManager {
      */
     private double processJoyst(double rawValue)
     {
-        if(-0.08 <= rawValue && rawValue <= 0.08){  //Deadzone of the joystick so if we slightly move it, it won't move the motors
-            rawValue = 0.0;
-        }
-        //return Math.pow((rawValue-JOY_DEAD_THRESHOLD) / (1-JOY_DEAD_THRESHOLD), JOY_CURVE_EXP);   //Got rid, because Tanh curve has an asymptote at 1 or 100% speed
-        return Math.tanh(rawValue);    //Testing tanh curve
+        if(Math.abs(rawValue) < JOY_DEAD_THRESHOLD)  //Deadzone of the joystick so if we slightly move it, it won't move the motors
+            return 0.0;
+        return Math.pow((rawValue-JOY_DEAD_THRESHOLD) / (1-JOY_DEAD_THRESHOLD), JOY_CURVE_EXP);   //Got rid, because Tanh curve has an asymptote at 1 or 100% speed
+        //return Math.tanh(rawValue);    //Testing tanh curve
         //return rawValue;
     }
 
@@ -45,7 +43,9 @@ public class InputManager {
             //double[0] = ySpeed double[1] = xSpeed double[2] = zRotation *for Mecanum Wheels*
         };
     }
-
+    public boolean flyWheels(){
+            return inputOne.getRawButton(2);
+    }
     public boolean[] encoderMax(){
         return new boolean[]{
             inputOne.getRawButton(1),

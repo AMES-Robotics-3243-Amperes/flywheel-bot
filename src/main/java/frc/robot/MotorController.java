@@ -28,14 +28,14 @@ public class MotorController
 	
 	public void drive(double [] val) {
 		driveM1.set(val[0]); // Left L
-		driveM2.set(val[1]); // Left R
-		driveM3.set(val[0]); // Right L
-		driveM4.set(val[1]); // Right R
+		driveM2.set(val[0]); // Left R
+		driveM3.set(-val[1]); // Right L
+		driveM4.set(-val[1]); // Right R
     }
     
     public void flywheelMotor(boolean flyCondition){ // Boolean method for CIM motor on flywheel mech
         if(flyCondition){
-            flywheel.set(ControlMode.PercentOutput, 1.0); 
+            flywheel.set(ControlMode.PercentOutput, -1.0); 
         }else{
             flywheel.set(ControlMode.PercentOutput, 0.0);
         }
