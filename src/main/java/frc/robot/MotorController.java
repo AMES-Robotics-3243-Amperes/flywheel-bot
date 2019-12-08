@@ -25,12 +25,15 @@ public class MotorController
     private WPI_TalonSRX driveM4 = new WPI_TalonSRX(RobotMap.MOTOR_RIGHT_2_ID);
     private VictorSPX flywheel = new VictorSPX(RobotMap.MOTOR_FLYWHEEL_ID);
 
-	
+    public defaultVar(double default){ // Default speed for motor
+        
+    }
+    
 	public void drive(double [] val) {
 		driveM1.set(val[0]); // Left L
 		driveM2.set(val[0]); // Left R
-		driveM3.set(-val[1]); // Right L
-		driveM4.set(-val[1]); // Right R
+		driveM3.set(-val[1]); // Right L Values are set to negative since motors are inverted
+		driveM4.set(-val[1]); // Right R Values are set to negative since motors are inverted
     }
     
     public void flywheelMotor(boolean flyCondition){ // Boolean method for CIM motor on flywheel mech

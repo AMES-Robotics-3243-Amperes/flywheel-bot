@@ -10,7 +10,7 @@ package frc.robot;
 /**
  * Add your docs here.
  */
-public class RobotMap {
+public class RobotMap { // Holds all variables for main classes. Consider this as a safe place to store instances that can be easily manipulated later
     public static final int MOTOR_LEFT_1_ID = 3;
     public static final int MOTOR_LEFT_2_ID = 4;
     public static final int MOTOR_RIGHT_1_ID = 1;
