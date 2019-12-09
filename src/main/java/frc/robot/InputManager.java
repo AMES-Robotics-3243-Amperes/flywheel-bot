@@ -43,9 +43,14 @@ public class InputManager {
             //double[0] = ySpeed double[1] = xSpeed double[2] = zRotation *for Mecanum Wheels*
         };
     }
-    public boolean flyWheels(){
-            return inputOne.getRawButton(2);
+    public boolean flyWheels(){ // Input method for flywheel motor
+            return inputOne.getRawButton(7);
     }
+    // Because both the flywheel motor AND the servomotor are set to button 7 (Right lower trigger), they will both operate concurrently... At least that's what I hope.
+    public boolean servoMotors(){
+        return inputOne.getRawButton(7);
+    }
+
     public boolean[] encoderMax(){
         return new boolean[]{
             inputOne.getRawButton(1),
@@ -53,7 +58,7 @@ public class InputManager {
         };
     }
 
-    public boolean fireButton()
+    public boolean fireButton() // 12/8/19 - How to bind trigger to servo motor and flywheel CIM
     {
         return inputOne.getRawButton(5)
             || inputOne.getRawButton(6)

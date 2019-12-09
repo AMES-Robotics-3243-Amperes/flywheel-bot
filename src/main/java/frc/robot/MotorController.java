@@ -43,7 +43,12 @@ public class MotorController
             flywheel.set(ControlMode.PercentOutput, 0.0);
         }
     }
-    public void servoControl(int extension){
-        servoMotor.set(extension);
+    public void servoControl(boolean angle){
+        if(angle){ // If the trigger on the joystick is pressed (7), then 'angle' will be true, resulting in the new angle being set to 45 degrees
+        servoMotor.setAngle(45); // I am uncertain whether that's the correct angle for the spheres to deploy
+        }
+        else{
+            servoMotor.setAngle(0);
+        }
     }
 }
