@@ -24,9 +24,9 @@ public class MotorController
 	private WPI_TalonSRX driveM3 = new WPI_TalonSRX(RobotMap.MOTOR_RIGHT_1_ID);
     private WPI_TalonSRX driveM4 = new WPI_TalonSRX(RobotMap.MOTOR_RIGHT_2_ID);
     private VictorSPX flywheel = new VictorSPX(RobotMap.MOTOR_FLYWHEEL_ID);
-
-    public defaultVar(double default){ // Default speed for motor
-        
+    private Servo servoMotor = new Servo(RobotMap.SERVO_MOTOR);
+    public void defaultVar(){ // Default speed for motor. Hopefully this will start the bot off with a default speed of (0.1)
+        flywheel.set(ControlMode.PercentOutput, 0.1);
     }
     
 	public void drive(double [] val) {
@@ -43,7 +43,7 @@ public class MotorController
             flywheel.set(ControlMode.PercentOutput, 0.0);
         }
     }
-    public void servoControl(int [] val){
-        
+    public void servoControl(int extension){
+        servoMotor.set(extension);
     }
 }
