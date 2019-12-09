@@ -18,4 +18,5 @@ public class RobotMap { // Holds all variables for main classes. Consider this a
     public static final int MOTOR_FLYWHEEL_ID = 5;
     public static final int DRIVER_CONTROLLER = 0; 
     public static final int SERVO_MOTOR = 8; // This ID might not be correct
+    public static final long SERVO_WAIT = 1; 
 }
