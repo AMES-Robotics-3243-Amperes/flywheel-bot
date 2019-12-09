@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.Joystick; // Wpilibj generic joystick library
 import edu.wpi.first.wpilibj.TimedRobot;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX; // Talon motorcont libraries
 import edu.wpi.first.wpilibj.Servo; // Generic servo library
-import java.util.ArrayList; // Should we use an arraylist? Would it make life easier?
 
 public class MotorController 
 {
@@ -48,7 +47,7 @@ public class MotorController
         servoMotor.setAngle(45); // I am uncertain whether that's the correct angle for the spheres to deploy
         }
         else{
-            servoMotor.setAngle(0);
+            servoMotor.setAngle(0); // Default angle of servo is set to 0. 
         }
     }
 }
