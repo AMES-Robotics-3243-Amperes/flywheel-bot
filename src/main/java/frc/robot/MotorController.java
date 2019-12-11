@@ -36,10 +36,17 @@ public class MotorController
 		driveM4.set(-val[1]); // Right R Values are set to negative since motors are inverted
     }
     
-    public void flywheelMotor(boolean flyCondition){ // Boolean method for CIM motor on flywheel mech
+    public void flywheelMotorMax(boolean flyCondition){ // Boolean method for CIM motor on flywheel mech
         if(flyCondition){
             flywheel.set(ControlMode.PercentOutput, -1.0); 
         }else{
+            flywheel.set(ControlMode.PercentOutput, 0.0);
+        }
+    }
+    public void flywheelMotorMed(boolean medCondition){
+        if(medCondition){
+            flywheel.set(ControlMode.PercentOutput, -0.5);
+        } else {
             flywheel.set(ControlMode.PercentOutput, 0.0);
         }
     }
