@@ -100,7 +100,8 @@ public class Robot extends IterativeRobot {
   public void teleopPeriodic() {
     Joystick driveStick = new Joystick(0);
     MC.drive(IM.throttles());
-    MC.flywheelMotor(IM.flyWheels());
+    MC.flywheelMotorMax(IM.flyWheelsMax());
+    MC.flywheelMotorMed(IM.flywheelsMed());
   }
 
   /**

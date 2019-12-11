@@ -43,12 +43,15 @@ public class InputManager {
             //double[0] = ySpeed double[1] = xSpeed double[2] = zRotation *for Mecanum Wheels*
         };
     }
-    public boolean flyWheels(){ // Input method for flywheel motor
-            return inputOne.getRawButton(7);
+    public boolean flyWheelsMax(){ // Input method for flywheel motor
+            return inputOne.getRawButton(1);
     }
-    // Because both the flywheel motor AND the servomotor are set to button 7 (Right lower trigger), they will both operate concurrently... At least that's what I hope.
-    public boolean servoMotors(){
-        return inputOne.getRawButton(7);
+    public boolean flywheelsMed(){ // Flywheel spins at half speed
+        return inputOne.getRawButton(2);
+    }
+    
+    public boolean servoMotors(){ // Servo input 
+        return inputOne.getRawButton(0);
     }
 
     public boolean[] encoderMax(){
