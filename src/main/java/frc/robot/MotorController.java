@@ -44,12 +44,11 @@ public class MotorController
         }
     }
     public void servoControl(boolean angle) throws InterruptedException{
-        if(angle){ // If the trigger on the joystick is pressed (7), then 'angle' will be true, resulting in the new angle being set to 45 degrees
+        if(angle){ // Servo is freaking out. Don't know why: 12/11/19
             servoMotor.setAngle(75); // I am uncertain whether that's the correct angle for the spheres to deploy
-            Thread.sleep(2500);
+            Thread.sleep(2000);
             servoMotor.setAngle(0);
-        }
-        else{
+        }else{
             servoMotor.setAngle(0); // Default angle of servo is set to 0. 
         }
     }
