@@ -17,8 +17,14 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX; // Talon motorcont libraries
 import edu.wpi.first.wpilibj.Servo; // Generic servo library
 import java.util.concurrent.TimeUnit;
 
+
+
 public class MotorController 
 {
+    // MotorController Instance Variables //
+    public int delayTimer = 1;
+
+    //                 -                  //
 	private WPI_TalonSRX driveM1 = new WPI_TalonSRX(RobotMap.MOTOR_LEFT_1_ID);
     private WPI_TalonSRX driveM2 = new WPI_TalonSRX(RobotMap.MOTOR_LEFT_2_ID);
 	private WPI_TalonSRX driveM3 = new WPI_TalonSRX(RobotMap.MOTOR_RIGHT_1_ID);
@@ -36,26 +42,26 @@ public class MotorController
 		driveM4.set(-val[1]); // Right R Values are set to negative since motors are inverted
     }
     
-    public void flywheelMotorMax(boolean flyCondition){ // Boolean method for CIM motor on flywheel mech
+    public void flywheelMotor(boolean flyCondition){ // Boolean method for CIM motor on flywheel mech
         if(flyCondition){
             flywheel.set(ControlMode.PercentOutput, -1.0); 
         }else{
             flywheel.set(ControlMode.PercentOutput, 0.0);
         }
     }
-    public void flywheelMotorMed(boolean medCondition){
-        if(medCondition){
-            flywheel.set(ControlMode.PercentOutput, -0.5);
-        } else {
-            flywheel.set(ControlMode.PercentOutput, 0.0);
+    public void servoControl(boolean angle) {
+        if(angle){ // If the trigger on the joystick is pressed (7), then 'angle' will be true, resulting in the new angle being set to 45 degrees
+            servoMotor.setAngle(80); // I am uncertain whether that's the correct angle for the spheres to deploy
+            try{
+            for(int i = 0; i < delayTimer; i++){
+                Thread.sleep(1000);
+            }
+            servoMotor.setAngle(0);
+        } catch (InterruptedException ie){
+            Thread.currentThread().interrupt();
         }
     }
-    public void servoControl(boolean angle) throws InterruptedException{
-        if(angle){ // Servo is freaking out. Don't know why: 12/11/19
-            servoMotor.setAngle(75); // I am uncertain whether that's the correct angle for the spheres to deploy
-            Thread.sleep(2000);
-            servoMotor.setAngle(0);
-        }else{
+        else{
             servoMotor.setAngle(0); // Default angle of servo is set to 0. 
         }
     }
