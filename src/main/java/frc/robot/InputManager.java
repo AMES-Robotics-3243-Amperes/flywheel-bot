@@ -43,15 +43,24 @@ public class InputManager {
             //double[0] = ySpeed double[1] = xSpeed double[2] = zRotation *for Mecanum Wheels*
         };
     }
-    public boolean flyWheelsMax(){ // Input method for flywheel motor
-            return inputOne.getRawButton(1);
+
+    public boolean dampenDrive(){
+        return inputOne.getRawButton(5);
     }
+
+    public boolean[] flyWheels(){ // Input method for flywheel motor
+        return new boolean[]{
+            inputOne.getRawButton(8),
+            inputOne.getRawButton(6)
+        };
+    }
+    /*
     public boolean flywheelsMed(){ // Flywheel spins at half speed
-        return inputOne.getRawButton(2);
+        return inputOne.getRawButton(6);
     }
-    
+    */
     public boolean servoMotors(){ // Servo input 
-        return inputOne.getRawButton(0);
+        return inputOne.getRawButton(7);    
     }
 
     public boolean[] encoderMax(){

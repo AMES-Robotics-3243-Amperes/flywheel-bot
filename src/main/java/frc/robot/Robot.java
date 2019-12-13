@@ -91,6 +91,8 @@ public class Robot extends IterativeRobot {
         // Put default auto code here
         break;
     }
+
+    MC.enabledPeriodic();
   }
 
   /**
@@ -99,9 +101,11 @@ public class Robot extends IterativeRobot {
   @Override
   public void teleopPeriodic() {
     Joystick driveStick = new Joystick(0);
-    MC.drive(IM.throttles());
-    MC.flywheelMotorMax(IM.flyWheelsMax());
-    MC.flywheelMotorMed(IM.flywheelsMed());
+    MC.drive(IM.throttles(), IM.dampenDrive());
+    MC.flywheelMotor(IM.flyWheels());
+    //MC.flywheelMotorMed(IM.flywheelsMed());
+    MC.servoControl(IM.servoMotors());
+    MC.enabledPeriodic();
   }
 
   /**
