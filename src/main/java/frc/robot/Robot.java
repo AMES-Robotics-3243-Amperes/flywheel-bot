@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
+
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -13,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -77,11 +79,22 @@ public class Robot extends IterativeRobot {
     System.out.println("Auto selected: " + m_autoSelected);
   }
 
+
+  double timeAtLastFire = -100;
   /**
    * This function is called periodically during autonomous.
    */
   @Override
   public void autonomousPeriodic() {
+    
+    MC.flywheelMotor(new boolean[]{true, true});
+    if(Timer.getFPGATimestamp() - 0.8 >= timeAtLastFire)
+    {
+      MC.servoControl(true);
+      timeAtLastFire = Timer.getFPGATimestamp();
+    }
+    
+    // default (auto-generated) code:
     switch (m_autoSelected) {
       case kCustomAuto:
         // Put custom auto code here
